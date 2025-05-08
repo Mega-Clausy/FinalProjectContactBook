@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ContactListScreen from './screens/ContactListScreen';
 import AddContactScreen from './screens/AddContactScreen';
 import EditContactScreen from './screens/EditContactScreen';
+import { ContactsProvider } from './context/ContactsContext';
 
 import HomeScreen from './screens/HomeScreen';
 
@@ -13,6 +14,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <PaperProvider>
+      <ContactsProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
@@ -37,6 +39,7 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      </ContactsProvider>
     </PaperProvider>
   );
 }
